@@ -1,3 +1,48 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
+<% if (title == 'Create User GET') { %>
+ <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h2>Add User</h2>
+            <form action="" method="post">
+              Username:<br>
+              <input type="text" name="username" placeholder="Username">
+              <br>
+              first_name:<br>
+              <input type="text" name="first_name" placeholder="first_name">
+              <br>
+              last_name:<br>
+              <input type="text" name="last_name" placeholder="last_name">
+              <br>
+              Email:<br>
+              <input type="email" name="email" placeholder="Email">
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+<% } if (title == 'Update User GET') { %>
+<div class="jumbotron">
+    <h2>Edit User</h2>
+            <form action="" method="post">
+              Username:<br>
+              <input type="text" name="username" value= <%= user.username%> >
+              <br>
+              first_name:<br>
+              <input type="text" name="first_name" value= <%= user.first_name%> >
+              <br>
+              last_name:<br>
+              <input type="text" name="last_name" value= <%= user.last_name%> >
+              <br>
+              Email:<br>
+              <input type="email" name="email" value= <%= user.email%> >
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+<% } else { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h1><%= title %></h1>
+            <p>The main content of the page goes here</p>
+        </div>
+    </div>
+<% } %>

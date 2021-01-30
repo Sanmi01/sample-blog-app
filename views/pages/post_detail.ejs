@@ -1,4 +1,11 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
+
+
+<div class="col-sm-12 single">
+    <h1><%= title %></h1>
+    <h3>Details of a Single Post</h3>
+    <p>I am a user for this ID = <%= post.id %></p>
+    <p>Title: <%= post.post_title %></p>
+    <p>Post:<%= post.post_body %></p>
+    <a href="/blog/user/<%= post.id %>/update">Post user</a> | <a href="/blog/user/<%= post.id %>/delete">Post user</a>
+</div>
  

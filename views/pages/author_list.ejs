@@ -1,3 +1,23 @@
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar-list') %>
+<%- contentFor('main-content') %>
+<h1>List of authors below</h1>
+
+<div class="col-sm-12">    
+        <div class="">
+        <ol>
+        <% authors.forEach(function(author) { %>
+                <li>
+                    <h4><a href="/blog/author/<%= author.id %>"><%= author.username %></a></h4>
+                    <p>Email:<%= author.email %></p>
+                    <p>First Name:<%= author.first_name %></p>
+                    <p>Last Name:<%= author.last_name %></p>
+                    <p>Role:<%= author.role %></p>
+                     <a href="/blog/author/<%= author.id %>/update">Edit author</a> | <a href="/blog/author/<%= author.id %>/delete">Delete author</a>
+                </li>
+            <br/>
+        <% }); %>
+        </ol>
+    </div>
+    </div>
+    
+<a href="/blog/author/create"><button>Add Author</button></a>
  

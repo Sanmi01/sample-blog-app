@@ -1,4 +1,43 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
- 
+
+
+
+<% if (title == 'Create Post') { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h2>Add Post</h2>
+            <form action="" method="post">
+              Post Title:<br>
+              <input type="text" name="post_title" value="Post Title">
+              <br>
+              Post Body:<br>
+              <input type="text" name="post_body" value="Post Body">
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+<% } else if (title == 'Delete Post') { %>
+     
+<% } else if (title == 'Update Post') { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h2>Update Post</h2>
+            <form action="/blog/post/<%= post.id %>/update" method="post">
+              Post Title:<br>
+              <input type="text" name="post_title" value="<%= post.post_title %>">
+              <br>
+              Post Body:<br>
+              <input type="text" name="post_body" value="<%= post.post_body %>">
+              <br><br>
+              <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+<% } else { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h1><%= title %></h1>
+            <p>The main content of the page goes here</p>
+        </div>
+    </div>
+<% } %> 

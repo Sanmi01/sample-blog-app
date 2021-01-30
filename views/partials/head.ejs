@@ -6,4 +6,117 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <style>
     body    { padding-top:50px; }
+    .bg-3 { 
+      background-color: #ffffff;
+      color: #555555;
+  }
+  
+  
+
+  .navbar {
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      letter-spacing: 5px;
+      background-color: #000 !important;
+  }
+  
+  .navbar-nav  li a {
+      color: #fff !important;
+      transition: 0.25s;
+  }
+  
+  .navbar-nav  li a:hover {
+      color: #50b750 !important;
+      font-size: 2rem !important;
+    transition: 0.25s;
+  }
+.active>a {
+    color: #1abc9c !important;;
+  }
+  
+  
+.navbar-brand {
+    transition: 0.25s;
+}  
+
+.navbar-brand:hover {
+    color: #fff !important;
+    transition: 0.25s;
+}
+  
+ main li, .single, #home, .jumbotron {
+    margin: 15px 15px;
+    box-shadow: 0 0 10px 2px rgb(148 255 148 / 30%);
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #000 !important;
+    color: #fff;
+}
+
+main li a {
+    border: 2px solid #333;
+    padding: 3px;
+    border-radius: 100px;
+    transition: 0.25s;
+}
+
+
+
+main li a:hover {
+    background: #fff;
+    text-decoration: none;
+    text-underline: none;
+    transition: 0.25s;
+}
+
+form input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 70%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button, .jumbotron input[type=submit] {
+  background: #333;
+  border-radius: 100px;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25em;
+  margin: 0 15px;
+  transition: 0.25s;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+}
+
+
+
+button:hover, .jumbotron input[type=submit]:hover {
+    background: #fff;
+    color: #333;
+    transition: 0.25s;
+}
+
+.jumbotron input[type=text], .jumbotron input[type=email], .jumbotron input[type=textarea] {
+    color: #333;
+}
+
+button a:hover {
+    text-decoration: none;
+    text-underline: none;
+}
+
+
 </style>
+
+<script>
+    $(document).ready(function(){
+    var element = $('meta[name="active-menu"]').attr('content');
+    $('#' + element).addClass('active');
+});
+
+</script>

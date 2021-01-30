@@ -10,7 +10,7 @@
 
 <!--POST VIEW STARTS HERE -->
 <% if (title == 'Create Post') { %>
-    <div class="col-sm-8">    
+    <div class="col-sm-12">    
         <div class="jumbotron">
             <form action="" method="post">
               Post Title:<br>
@@ -26,7 +26,7 @@
 <% } else if (title == 'Delete Post') { %>
      
 <% } else if (title == 'Update Post') { %>
-    <div class="col-sm-8">    
+    <div class="col-sm-12">    
         <div class="jumbotron">
             <form action="/blog/post/<%= post.id %>/update" method="post">
               Post Title:<br>
@@ -40,7 +40,7 @@
         </div>
     </div>
 <% } else if (title == 'Post Details') { %>
-    <div class="col-sm-8">    
+    <div class="col-sm-12">    
         <div class="">
              <h1>Details of a Single post</h1>
              <p>I am a post for this ID = <%= post.id %></p>
@@ -50,7 +50,7 @@
         </div>
     </div>
 <% } else if (title == 'Post List') { %>
-    <div class="col-sm-8">    
+    <div class="col-sm-12">    
         <div class="">
         <ol>
         <% posts.forEach(function(post) { %>
@@ -65,31 +65,148 @@
     </div>
     </div>
 <% } else { %>
-    <div class="col-sm-8">    
-        <div class="jumbotron">
-            <h1><%= title %></h1>
-            <p>The main content of the page goes here</p>
-        </div>
-    </div>
+    
 <% } %>
 <!--POST VIEW END HERE-->
 
 <!--AUTHOR VIEW STARTS HERE -->
 <!--complete logic for author view-->
 <% if (title == 'Create Author') { %>
- 
+     <div class="col-sm-12">    
+        <div class="jumbotron">
+            <form action="" method="post">
+              Username:<br>
+              <input type="text" name="username" placeholder="Username">
+              <br>
+              first_name:<br>
+              <input type="text" name="first_name" placeholder="last_name">
+              <br>
+              last_name:<br>
+              <input type="text" name="last_name" placeholder="last_name">
+              <br>
+              role:<br>
+              <input type="text" name="role" placeholder="last_name">
+              <br>
+              Email:<br>
+              <input type="email" name="email" placeholder="Email">
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
 <% } else if (title == 'Delete Author') { %>
      
 <% } else if (title == 'Update Author') { %>
-   
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <form action="/blog/post/<%= author.id %>/update" method="post">
+              Author Title:<br>
+              <input type="text" name="author_title" value="<%= post.author_title %>">
+              <br>
+              Author Body:<br>
+              <input type="text" name="author_body" value="<%= post.author_body %>">
+              <br><br>
+              <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
 <% } else if (title == 'Author Details') { %>
- 
+    <div class="col-sm-12">    
+        <div class="">
+             <h1>Details of a Single Author</h1>
+             <p>I am a post for this ID = <%= author.id %></p>
+             <p>Author Title: <%= post.author_title %></p>
+             <p>Author Body:  <%= post.author_body %></p>
+             <a href="/blog/author/<%= author.id %>/update">Edit  Author</a> | <a href="/blog/author/<%= author.id %>/delete">Delete Author</a>
+        </div>
+    </div>
 <% } else if (title == 'Author List') { %>
-  
+  <div class="col-sm-12">    
+        <div class="">
+        <ol>
+        <% authors.forEach(function(author) { %>
+                <li>
+                    <h4><a href="/blog/author/<%= author.id %>"><%= post.author_title %></a></h4>
+                    <p>The main body of the author <%= post.author_body %></p>
+                     <a href="/blog/author/<%= author.id %>/update">Edit Author</a> | <a href="/blog/author/<%= author.id %>/delete">Delete Author</a>
+                </li>
+            <br/>
+        <% }); %>
+        </ol>
+    </div>
+    </div>
 <% } else { %>
-  
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h1><%= title %></h1>
+            <p>The main content of the page goes here</p>
+        </div>
+    </div>
 <% } %>
 <!--AUTHOR VIEW END HERE-->
+
+<!--USER VIEW STARTS HERE -->
+<% if (title == 'Create User GET') { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <form action="" method="post">
+              Username:<br>
+              <input type="text" name="username" value="Username">
+              <br>
+              first_name:<br>
+              <input type="text" name="first_name" value="last_name">
+              <br>
+              last_name:<br>
+              <input type="text" name="last_name" value="last_name">
+              <br>
+              Email:<br>
+              <input type="email" name="email" value="Email">
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+<% } else if (title == 'Delete User') { %>
+     
+<% } else if (title == 'Update User') { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <form action="/blog/post/<%= user.id %>/update" method="post">
+              Username:<br>
+              <input type="text" name="user_username" value="<%= user.username %>">
+              <br>
+              User Email:<br>
+              <input type="text" name="user_email" value="<%= user.email %>">
+              <br><br>
+              <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+<% } else if (title == 'List Details') { %>
+    <div class="col-sm-12">    
+        <div class="">
+             <h1>Details of a Single post</h1>
+             <p>I am a post for this ID = <%= post.id %></p>
+             <p>Post Title: <%= post.post_title %></p>
+             <p>Post Body:  <%= post.post_body %></p>
+             <a href="/blog/post/<%= post.id %>/update">Edit  Post</a> | <a href="/blog/post/<%= post.id %>/delete">Delete Post</a>
+        </div>
+    </div>
+<% } else if (title == 'User Details') { %>
+    <div class="col-sm-12">    
+        <div class="">
+             <h1>Details of a Single user</h1>
+             <p>I am a user for this ID = <%= user.id %></p>
+             <p>Username: <%= user.post_title %></p>
+             <p>Email:<%= user.email %></p>
+             <p>First Name:<%= user.first_name %></p>
+             <p>Last Name:<%= user.last_name %></p>
+             <a href="/blog/post/<%= post.id %>/update">Edit  Post</a> | <a href="/blog/post/<%= post.id %>/delete">Delete Post</a>
+        </div>
+    </div>
+<% } else { %>
+<% } %>
+<!--USER VIEW END HERE-->
 
 <!--COMMENT VIEW STARTS HERE-->
 <!--complete logic for category view-->

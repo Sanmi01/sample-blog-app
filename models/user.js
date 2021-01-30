@@ -1,12 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
-      id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false,
-        },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -35,6 +29,8 @@ module.exports = (sequelize, DataTypes) => {
             isEmail: true,
         }
       },
+
+
   });
 
   User.associate = function(models) {

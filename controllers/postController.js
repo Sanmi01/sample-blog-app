@@ -4,7 +4,7 @@ var models = require('../models');
 // Display post create form on GET.
 exports.post_create_get = function(req, res, next) {
         // renders a post form
-        res.render('forms/post_form', { title: 'Create Post', layout: 'layouts/detail'});
+        res.render('forms/post_form', { title: 'Create Post', layout: 'layouts/main'});
         console.log("Post form renders successfully");
 };
 
@@ -58,11 +58,11 @@ exports.post_delete_post = function(req, res, next) {
 exports.post_update_get = function(req, res, next) {
         // Find the post you want to update
         console.log("ID is " + req.params.post_id);
-        models.Post.findByPk(
+        models.Post.findById(
                 req.params.post_id
         ).then(function(post) {
                // renders a post form
-               res.render('forms/post_form', { title: 'Update Post', post: post, layout: 'layouts/detail'});
+               res.render('forms/post_form', { title: 'Update Post', post: post, layout: 'layouts/main'});
                console.log("Post update get successful");
           });
         
@@ -95,12 +95,12 @@ exports.post_update_post = function(req, res, next) {
 // Display detail page for a specific post.
 exports.post_detail = function(req, res, next) {
         // find a post by the primary key Pk
-        models.Post.findByPk(
+        models.Post.findById(
                 req.params.post_id
         ).then(function(post) {
         // renders an inividual post details page
-        res.render('pages/post_detail', { title: 'Post Details', post: post, layout: 'layouts/detail'} );
-        console.log("Post deteials renders successfully");
+        res.render('pages/post_detail', { title: 'Post Details', post: post, layout: 'layouts/main'} );
+        console.log("Post details renders successfully");
         });
 };
 
@@ -124,6 +124,14 @@ exports.index = function(req, res) {
       // find the count of posts in database
       models.Post.findAndCountAll(
       ).then(function(postCount) {
+          models.Author.findAndCountAll(
+      ).then(function(authorCount) {
+          models.User.findAndCountAll(
+      ).then(function(userCount) {
+          models.Comment.findAndCountAll(
+      ).then(function(commentCount) {
+          models.Category.findAndCountAll(
+      ).then(function(categoryCount) {
           
        
         // find the count of authors in database
@@ -132,11 +140,14 @@ exports.index = function(req, res) {
  
         // find the count of categories in database
  
-        res.render('pages/index', {title: 'Homepage', postCount: postCount, layout: 'layouts/main'});
+        res.render('pages/index', {title: 'Homepage', postCount: postCount, authorCount: authorCount, userCount:userCount, commentCount:commentCount, categoryCount:categoryCount, layout: 'layouts/main'});
         
         // res.render('pages/index_list_sample', { title: 'Post Details', layout: 'layouts/list'});
         // res.render('pages/index_detail_sample', { page: 'Home' , title: 'Post Details', layout: 'layouts/detail'});
-
+      })
+      })
+      })
+      })
       })
     
     

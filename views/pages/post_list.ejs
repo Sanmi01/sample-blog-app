@@ -1,3 +1,23 @@
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar-list') %>
+
+
+<%- contentFor('main-content') %>
+<h1>List of posts below</h1>
+
+<div class="col-sm-12">    
+        <div class="">
+        <ol>
+        <% posts.forEach(function(post) { %>
+                <li>
+                    <h4><a href="/blog/post/<%= post.id %>"><%= post.post_title %></a></h4>
+                    <p>Post: <%= post.post_body %></p>
+                     <a href="/blog/post/<%= post.id %>/update">Edit post</a> | <a href="/blog/post/<%= post.id %>/delete">Delete post</a>
+                </li>
+            <br/>
+        <% }); %>
+        </ol>
+    </div>
+    </div>
+    
+<a href="/blog/post/create"><button>Add Post</button></a>
+ 
  

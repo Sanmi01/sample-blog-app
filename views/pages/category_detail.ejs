@@ -1,4 +1,8 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
- 
+<div class="col-sm-12 single">
+    <h1><%= title %></h1>
+    <h3>Details of a Single Category</h3>
+    <p>I am a category for this ID = <%= category.id %></p>
+    <p>Name: <%= category.name %></p>
+    <p>Specification:<%= category.specification %></p>
+    <a href="/blog/category/<%= category.id %>/update">Edit category</a> | <a href="/blog/category/<%= category.id %>/delete">Delete category</a>
+</div>

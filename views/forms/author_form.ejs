@@ -1,4 +1,58 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
+
  
+ 
+ 
+<% if (title == 'Create Author') { %>
+ <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h2>Add Author</h2>
+            <form action="" method="post">
+              Username:<br>
+              <input type="text" name="username" placeholder="Username">
+              <br>
+              first_name:<br>
+              <input type="text" name="first_name" placeholder="last_name">
+              <br>
+              last_name:<br>
+              <input type="text" name="last_name" placeholder="last_name">
+              <br>
+              role:<br>
+              <input type="text" name="role" placeholder="last_name">
+              <br>
+              Email:<br>
+              <input type="email" name="email" placeholder="Email">
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+<% } else if (title == 'Update Author') { %>
+<div class="jumbotron">
+            <form action="" method="post">
+                <h2>Edit Author</h2>
+              Username:<br>
+              <input type="text" name="username" value= <%= author.username%> >
+              <br>
+              first_name:<br>
+              <input type="text" name="first_name" value= <%= author.first_name%> >
+              <br>
+              last_name:<br>
+              <input type="text" name="last_name" value= <%= author.last_name%> >
+              <br>
+              role:<br>
+              <input type="text" name="role" value= <%= author.role%> >
+              <br>
+              Email:<br>
+              <input type="email" name="email" value= <%= author.email%> >
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+<% } else { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h1><%= title %></h1>
+            <p>The main content of the page goes here</p>
+        </div>
+    </div>
+<% } %>

@@ -1,3 +1,40 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
+<% if (title == 'Create Comment') { %>
+ <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h2>Add Comment</h2>
+            <form action="" method="post">
+              Username:<br>
+              <input type="text" name="username" placeholder="Username">
+              <br>
+              title:<br>
+              <input type="text" name="title" placeholder="title">
+              <br>
+              body:<br>
+              <input type="textarea" name="body" placeholder="Comment here">
+              <br>
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+<% } if (title == 'Update Comment') { %>
+<div class="jumbotron">
+    <h2>Edit Comment</h2>
+            <form action="" method="post">
+              Title:<br>
+              <input type="text" name="title" value= <%= comment.title%> >
+              <br>
+              body:<br>
+              <input type="textarea" name="body" value= <%= comment.body%> >
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+<% } else { %>
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h1><%= title %></h1>
+            <p>The main content of the page goes here</p>
+        </div>
+    </div>
+<% } %>

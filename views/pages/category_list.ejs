@@ -1,3 +1,20 @@
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar-list') %>
+<%- contentFor('main-content') %>
+<h1>List of categories below</h1>
+
+<div class="col-sm-12">    
+        <div class="">
+        <ol>
+        <% categories.forEach(function(category) { %>
+                <li>
+                    <h4><a href="/blog/category/<%= category.id %>"><%= category.name %></a></h4>
+                    <p>Specification:<%= category.specification %></p>
+                     <a href="/blog/category/<%= category.id %>/update">Edit category</a> | <a href="/blog/category/<%= category.id %>/delete">Delete category</a>
+                </li>
+            <br/>
+        <% }); %>
+        </ol>
+    </div>
+    </div>
+    
+    <a href="/blog/category/create"><button>Add category </button></a>
  

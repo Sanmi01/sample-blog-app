@@ -1,4 +1,9 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
- 
+<div class="col-sm-12 single">
+    <h1><%= title %></h1>
+    <h3>Details of a Single Comment</h3>
+    <p>I am a comment for this ID = <%= comment.id %></p>
+    <p>Title: <%= comment.title %></p>
+    <p>Comment:<%= comment.body %></p>
+    <p>Comment made by:<%= comment.username %></p>
+    <a href="/blog/comment/<%= comment.id %>/update">Edit comment</a> | <a href="/blog/comment/<%= comment.id %>/delete">Delete comment</a>
+</div>

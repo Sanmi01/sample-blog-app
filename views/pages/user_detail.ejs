@@ -1,4 +1,13 @@
-<%- include ('../partials/left-sidebar') %>
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar') %>
- 
+
+
+<div class="col-sm-12 single">
+    <h1><%= title %></h1>
+    <h3>Details of a Single User</h3>
+    <p>I am a user for this ID = <%= user.id %></p>
+    <p>Username: <%= user.username %></p>
+    <p>Email:<%= user.email %></p>
+    <p>First Name:<%= user.first_name %></p>
+    <p>Last Name:<%= user.last_name %></p>
+    <a href="/blog/user/<%= user.id %>/update">Edit user</a> | <a href="/blog/user/<%= user.id %>/delete">Delete user</a>
+</div>
+

@@ -1,3 +1,20 @@
-<%- include ('../partials/content') %>
-<%- include ('../partials/right-sidebar-list') %>
- 
+<%- contentFor('main-content') %>
+<h1>List of comments below</h1>
+
+<div class="col-sm-12">    
+        <div class="">
+        <ol>
+        <% comments.forEach(function(comment) { %>
+                <li>
+                    <h4><a href="/blog/comment/<%= comment.id %>"><%= comment.title %></a></h4>
+                    <p>Comment:<%= comment.body %></p>
+                    <p>Comment made by:<%= comment.username %></p>
+                     <a href="/blog/comment/<%= comment.id %>/update">Edit comment</a> | <a href="/blog/comment/<%= comment.id %>/delete">Delete comment</a>
+                </li>
+            <br/>
+        <% }); %>
+        </ol>
+    </div>
+    </div>
+    
+<a href="/blog/comment/create"><button>Add Comment </button></a>
