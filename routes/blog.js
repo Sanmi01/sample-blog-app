@@ -8,6 +8,7 @@ var post_controller = require('../controllers/postController');
 var category_controller = require('../controllers/categoryController');
 var comment_controller = require('../controllers/commentController');
 var user_controller = require('../controllers/userController');
+var customer_controller = require('../controllers/customerController');
 
 
 /// POST ROUTES ///
@@ -61,6 +62,33 @@ router.get('/author/:author_id', author_controller.author_detail);
 
 // GET request for list of all Authors.
 router.get('/authors', author_controller.author_list);
+
+/// CUSTOMER ROUTES ///
+
+// GET request for creating Customer. NOTE This must come before route for id (i.e. display customer).
+// router.get('/customer/create', customer_controller.customer_create_get);
+
+// POST request for creating Customer.
+router.post('/customer/create', customer_controller.customer_create_post);
+
+// GET request to delete Customer.
+router.get('/customer/:customer_id/delete', customer_controller.customer_delete_get);
+
+// POST request to delete Customer
+router.post('/customer/:customer_id/delete', customer_controller.customer_delete_post);
+
+// GET request to update Customer.
+router.get('/customer/:customer_id/update', customer_controller.customer_update_get);
+
+// POST request to update Customer.
+router.post('/customer/:customer_id/update', customer_controller.customer_update_post);
+
+// GET request for one Customer.
+router.get('/customer/:customer_id', customer_controller.customer_detail);
+
+// GET request for list of all Customers.
+router.get('/customers', customer_controller.customer_list);
+
 
 /// USER ROUTES ///
 
