@@ -8,17 +8,17 @@ module.exports = {
     storage: ":memory:"
   },
   dev: {
-    username: "traineeUser",
-    password: "traineePassword",
+    username: "manifestUser",
+    password: "manifestPassword",
     database: "oluwasanmidatabase",
-    host: "traineedb.cgq0reqixqsd.us-east-1.rds.amazonaws.com",
+    host: "manifestdbinstance.cgq0reqixqsd.us-east-1.rds.amazonaws.com",
     dialect: 'postgres' 
   },
   production: {
-    username: "traineeUser",
-    password: "traineePassword",
+    username: "manifestUser",
+    password: "manifestPassword",
     database: "oluwasanmidatabase",
-    host: "traineedb.cgq0reqixqsd.us-east-1.rds.amazonaws.com",
+    host: "manifestdbinstance.cgq0reqixqsd.us-east-1.rds.amazonaws.com",
     dialect: 'postgres' 
   }
   // ,
